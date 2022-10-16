@@ -58,8 +58,12 @@ List view with small cards of each note including small text preview and a previ
 ### Normal View
 <img width="711" alt="Bildschirm­foto 2022-10-16 um 14 16 45" src="https://user-images.githubusercontent.com/59178587/196035529-cc727ad6-36e4-4085-a6b9-65dd2091f3f9.png">
 
+---
+
 ### Compact View
 <img width="703" alt="Bildschirm­foto 2022-10-16 um 14 17 41" src="https://user-images.githubusercontent.com/59178587/196035534-8da3fd4e-646f-4f75-a8d4-544f44147aea.png">
+
+---
 
 ### Cards View
 <img width="672" alt="Bildschirm­foto 2022-10-16 um 14 18 18" src="https://user-images.githubusercontent.com/59178587/196035541-e28b89fe-3cd7-4f80-a3dd-6b258082710d.png">
