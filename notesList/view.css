@@ -3,7 +3,7 @@
 	flex-wrap: wrap;
 	flex-direction: row;
 	justify-content: space-around;
-	
+	cursor: default;
 	background: var(--background-primary);
 	border-radius: 10px;
 	overflow: hidden;
@@ -200,7 +200,11 @@
 }
 .NotesList[view='cards'] .listViewItem {
 	flex-direction: column;
-	width: 190px;
+	min-width: 150px;
+	width: 150px;
+	max-width: 100%;
+	flex-shrink: 1;
+	flex-grow: 1;
 	height: 190px;
 	margin: 5px;
 	padding: 0;
