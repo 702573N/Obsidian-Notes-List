@@ -1,4 +1,4 @@
-# Notes-List
+# Obsidian-Notes-List
 Dataview Snippet To Show Notes In Different List Views
 
 ## Story
