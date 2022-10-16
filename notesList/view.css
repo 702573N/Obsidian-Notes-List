@@ -3,9 +3,16 @@
 	flex-wrap: wrap;
 	flex-direction: row;
 	justify-content: space-around;
+	
+	background: var(--background-primary);
+	border-radius: 10px;
+	overflow: hidden;
 }
 .NotesList .cm-link {
 	pointer-events: none;
+}
+.NotesList[view='normal'] .listViewItem:not(:last-child) {
+	border-bottom: 1px solid var(--background-modifier-hover);
 }
 .NotesList[view='normal'] .listViewItem {
 	display: block;
@@ -14,7 +21,6 @@
 	cursor: pointer;
 	margin: 0;
 	border-radius: 0;
-	border-bottom: 1px solid var(--background-modifier-hover);
 	flex-shrink: 1;
 	flex-grow: 1;
 }
@@ -25,12 +31,11 @@
 	cursor: pointer;
 	margin: 0;
 	border-radius: 0;
-	border-bottom: 1px solid var(--background-modifier-hover);
 	flex-shrink: 1;
 	flex-grow: 1;
 }
-.NotesList .listViewItem:hover {
-	background: var(--background-modifier-hover);
+.NotesList[view='compact'] .listViewItem:not(:last-child) {
+	border-bottom: 1px solid var(--background-modifier-hover);
 }
 .NotesList .inner {
 	height: 100%;
@@ -190,11 +195,14 @@
 
 
 
+.NotesList[view='cards'] {
+	padding: 5px;
+}
 .NotesList[view='cards'] .listViewItem {
 	flex-direction: column;
 	width: 190px;
 	height: 190px;
-	margin: 10px;
+	margin: 5px;
 	padding: 0;
 	border: 1px solid var(--background-modifier-hover);
 	background: var(--background-modifier-hover);
