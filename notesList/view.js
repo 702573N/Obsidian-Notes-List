@@ -12,9 +12,6 @@ var attachmentTemplate = "<div class='file'><div class='fileExtension'>{{fileExt
 // Set Root Node
 const rootNode = dv.el("div", "", {cls: "NotesList", attr: {view: view}});
 
-// Remove Automatic Created Inner Span
-rootNode.querySelector(".NotesList span").remove();
-
 // Loop Notes To Build ListView
 notes.forEach(function(note) {
 		
@@ -53,19 +50,22 @@ notes.forEach(function(note) {
 	
 		// Optimize Description
 		app.vault.read(filePath).then(function(fileDescription) {
-			fileDescription = fileDescription.substring(0,300);
+			fileDescription = fileDescription.substring(0,500);
+			fileDescription = fileDescription.replace(/(\!\[\[).*(\]\])/gm, "");
+			fileDescription = fileDescription.replace(/(\!\[).*(\])/gm, "");
+			fileDescription = fileDescription.replace(/(\[).*(\]\().*(\))/gm, "");
 			fileDescription = fileDescription.replaceAll("---", "");
 			fileDescription = fileDescription.replaceAll("*", "");
 			fileDescription = fileDescription.replaceAll("|", "");
 			fileDescription = fileDescription.replaceAll("![", "");
 			fileDescription = fileDescription.replaceAll("[", "");
 			fileDescription = fileDescription.replaceAll("]", "");
-			fileDescription = fileDescription.replaceAll("# ", "");
-			fileDescription = fileDescription.replaceAll("## ", "");
-			fileDescription = fileDescription.replaceAll("### ", "");
-			fileDescription = fileDescription.replaceAll("#### ", "");
-			fileDescription = fileDescription.replaceAll("##### ", "");
-			fileDescription = fileDescription.replaceAll("###### ", "");
+			fileDescription = fileDescription.replaceAll("#", "");
+			fileDescription = fileDescription.replaceAll("##", "");
+			fileDescription = fileDescription.replaceAll("###", "");
+			fileDescription = fileDescription.replaceAll("####", "");
+			fileDescription = fileDescription.replaceAll("#####", "");
+			fileDescription = fileDescription.replaceAll("######", "");
 			fileDescription = fileDescription.replaceAll("```", "");
 			fileDescription = fileDescription.replaceAll(">", "");
 			fileDescription = fileDescription.replaceAll("<", "");
@@ -76,6 +76,6 @@ notes.forEach(function(note) {
 			var listViewItem = noteTemplate.replace("{{filePath}}",filePathName).replace("{{fileName}}",fileName).replace("{{fileDate}}",fileDate).replace("{{fileDescription}}",fileDescription).replace("{{fileAttachments}}",fileAttachments);
 			
 			// Append To Root Node
-			rootNode.appendChild(dv.el("div", listViewItem, {cls: "listViewItem", attr: {outlinks: fileAttachmentsCounter}}));
+			rootNode.querySelector("span").appendChild(dv.el("div", listViewItem, {cls: "listViewItem", attr: {outlinks: fileAttachmentsCounter}}));
 		});
 });
